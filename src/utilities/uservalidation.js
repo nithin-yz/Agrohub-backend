@@ -16,11 +16,11 @@ return regex.test(password)
 
 }
 
-const checkPasswords=(p1,p2)=>{
+const checkPasswords= async (p1,p2)=>{
 
 if(p1==p2){
     const saltrounds=10
-const hashedPassword = bcrypt.hash(p1,saltrounds)
+const hashedPassword = await bcrypt.hash(p1,saltrounds)
 return hashedPassword
 }else{
 
@@ -30,3 +30,4 @@ return hashedPassword
 
 }
 
+module.exports ={validateEmail,validatePassword,checkPasswords}
