@@ -19,7 +19,7 @@ return regex.test(password)
 const checkPasswords= async (p1,p2)=>{
 
 if(p1==p2){
-    const saltrounds=10
+    const saltrounds=await  bcrypt.genSalt(10)
 const hashedPassword = await bcrypt.hash(p1,saltrounds)
 return hashedPassword
 }else{
