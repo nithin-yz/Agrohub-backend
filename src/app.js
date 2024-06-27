@@ -3,7 +3,15 @@ const session = require('express-session')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const connectDB = require("./config/db")
+const jwt = require('jsonwebtoken');
+
 require('dotenv').config()
+
+
+
+//routes are extracting down
+
+
 const authRoutes= require("./routes/authRoutes")
 // const farmerRoutes=require("")
 // const adminRoutes =require("")
