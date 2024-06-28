@@ -1,6 +1,9 @@
 const express = require("express")
 const farmerSchema=require("./../models/farmerScheme")
 const {validateEmail,validatePassword,checkPasswords }=require("./../utilities/uservalidation")
+const {MailSender,otps} = require("./../utilities/nodemailer")
+
+
 
 exports.signup= async(req,res)=>{
 
@@ -28,11 +31,15 @@ const newregistration = new farmerSchema({
     
     
     })
-    
+    console.log("het")
     await  newregistration.save()
+    MailSender(email)
+    
+    console.log("hello")
+    
     res.status(201).send("user registration is done ")
     
-    
+
     
     
     
